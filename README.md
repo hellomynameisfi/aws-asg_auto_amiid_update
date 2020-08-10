@@ -1,4 +1,5 @@
 # aws_imgbldr_asg_from_amiTags
+Link to base material: https://github.com/aws-samples/ec2-auto-scaling-instance-refresh-sample
 
 ## Table of contents
 * [General info](#general-info)
