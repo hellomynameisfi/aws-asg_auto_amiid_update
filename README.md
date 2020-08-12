@@ -1,4 +1,4 @@
-# aws_imgbldr_asg_from_amiTags
+# Auto Scaling groups Instance Refresh solution
 
 ## Table of contents
 * [General info](#general-info)
