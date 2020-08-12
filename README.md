@@ -181,7 +181,7 @@ Now select the pipeline you have just created, click the "Actions" button and se
 You have now succesfully created a pipeline, which is now building the first AMI to be used in your Auto Scaling group.
 
 ### Step 5: Create a Launch template
-asdasdsd
+Get yourself some coffee and wait till the pipeline image is fully created and marked as "Available" in EC2 Image Builder. 
 
 ### Step 6: Create Auto Scaling group from Launch Template
 
