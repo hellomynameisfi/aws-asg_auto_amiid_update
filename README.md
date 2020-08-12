@@ -16,8 +16,8 @@ To run this project, install it locally using npm:
 First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to IAM in youe ARS Console (https://console.aws.amazon.com/iam/) and under Access management on the left panel select "Roles" (https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
 
 After being taken to the next screen select:
-	* AWS service
-	* EC2
+* AWS service
+* EC2
 
 ... and click the "Next: Permissions" button at the bottom of the page.
 
