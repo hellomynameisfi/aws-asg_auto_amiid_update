@@ -173,8 +173,11 @@ Here you have to provide:
 
 ... and click "Next" button on the bottom of the page.
 
+On the next page, under "Output AMI" create a tag with the key *ASGname* with a value equal to the Auto Scaling Group name you will be updating (in our case we will use *server_asg_to_update*. Click "Review" on the bottom of the page and then click "Create pipeline" on the bottom of the next page.
 
+Now select the pipeline you have just created, click the "Actions" button and select "Run pipeline".
 
+You have now succesfully created a pipeline, which is now creating the first AMI ID for you Auto Scaling Group.
 
 ### Step X: Create Target group
 
