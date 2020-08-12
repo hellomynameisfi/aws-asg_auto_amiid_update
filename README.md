@@ -9,7 +9,7 @@
 
 
 ## General info
-These are step-by-step instructions on how to automatically update the ami-ID inside an Auto Scalig Group with an EC2 Image Builder generated image ami-ID. The goal is to have one function responsible for updating all desired ASG's instead of a function for each ASG separately (and because I was unsuccesfull with the original solution provided by aws-samples). I use a amiTag set in the EC2 Image Builder pipeline instead of a environment variable from within Lambda function.
+These are step-by-step instructions on how to automatically update the AMI ID inside an Auto Scalig Group with an EC2 Image Builder generated image AMI ID. The goal is to have one function responsible for updating all desired ASG's instead of a function for each ASG separately (and because I was unsuccesfull with the original solution provided by aws-samples). I use a amiTag set in the EC2 Image Builder pipeline instead of a environment variable from within Lambda function.
 
 This solution is building on "Sample EC2 Auto Scaling groups Instance Refresh solution" by aws-samples (https://github.com/aws-samples/ec2-auto-scaling-instance-refresh-sample).
 
@@ -138,7 +138,7 @@ In your AWS console navigate to SNS and choose "Topics" from the left panel (htt
 You have now succesfully created an SNS topic for your setup. Don't worry about a subscription, we'll do it later. Let's continue.
 
 ### Step 4: Create your pipeline and run it
-Navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling Group.
+Now we need to set a pipeline and run it for the first time to get a new AMI ID. To do that navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling Group.
 
 
 
