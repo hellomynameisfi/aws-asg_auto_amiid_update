@@ -58,7 +58,7 @@ Now click the "Review policy" button at the bottom of the page.
 
 Give the policy a name (we'll use *image_builder_s3-readonly-access*), and create the policy by clicking "Create policy" button at the bottom of the page.
 
-You have now succesfully created a role for your EC2 Image Builder pipeline. Let's continue.
+Congratulations! You have now succesfully created a role for your EC2 Image Builder pipeline. Let's continue.
 
 ### Step 2: Create a IAM role for Lambda
 We also need to create the role for the Lambda function to be able to update the Auto Scaling group. The process is quite similiar to what we did in when we created a role for EC2 Image Builder.
@@ -134,19 +134,19 @@ Now click the "Review policy" button at the bottom of the page.
 
 Give the policy a name (we'll use *lambda_asg-refresh_ami*), and create the policy by clicking "Create policy" button at the bottom of the page.
 
-You have now succesfully created a role for your Lambda function. Let's continue.
+Congratulations! You have now succesfully created a role for your Lambda function. Let's continue.
 
 ### Step 3: Create an SNS topic
 In your AWS console navigate to SNS and choose ["Topics"](https://console.aws.amazon.com/sns/v3/home?/topics) from the left panel. Click the "Create topic" button. Give it a name (we'll use *image_builder-to-lambda*), and click "Create topic" button at the bottom of the page.
 
-You have now succesfully created an SNS topic for your setup. Don't worry about a subscription, we'll do it later. Let's continue.
+Congratulations! You have now succesfully created an SNS topic for your setup. Don't worry about a subscription, we'll do it later. Let's continue.
 
 ### Step 4: Create your pipeline and run it for the first time
 Now we need to set a pipeline and run it for the first time to get a new AMI ID. To do that navigate to [EC2 Image builder](https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling group.
 
 Click the "Create image pipeline" button. On the next page select a Linux/Windows distribution you want to use and under "Select image" choose "Select managed images". Here you can choose the distribution version you wish to use. After selecting the image tick the "Always build latest version." box (may be ommited if your setup does not allow it for some reason, but you will be missing out on some security patches for your OS).
 
-Now we have to add at least one component to our image pipeline. Let's quickly create one if you don't have one already. For that click "Create build component". On the page you were taken to fill out the following:
+Now we have to add at least one component to our image pipeline. Let's quickly create one (if you don't have a valid one already). For that click "Create build component". On the page you were taken to fill out the following:
 * Component name = "Update_OS"
 * Component version = 1.0.0
 * Content = remove whatever was there and replace it with:
@@ -164,15 +164,15 @@ phases:
 
 Now close this window and return to the one where we were configuring the pipeline in (if you closed it for some reason, you will have to restart this step and instead of creating a new component we are going to select the one we have created a moment ago). You can add your component by clicking "Browse build components", selecting "Owned by me" instead of "Amazon owned", and selecting the desired component (in our case *Update_OS ver. 1.0.0*).
 
-If you have a valid test you can use, please add it in the "Test" area. For this example we will not be doing this as this step is optional. Click "Next" button on the bottom of the page.
+If you have a valid test you can use, please add it in the "Test" area. For this example we will not be doing this as this step is optional, but it is highly advised to test your machine thoroughly before deploying it in production). Click "Next" button on the bottom of the page.
 
 Here you have to provide:
-* Name = a name for your pipeline (we will use *pipeline-example*)
+* Name = a name for your pipeline (we'll use *pipeline-example*)
 * IAM role = select the EC2 role you have selected in [Step 1](#step-1-create-a-iam-role-for-ec2-image-builder) (in our case it's *imagebuilder_pipeline_role*)
 * Build schedule = select how you want your pipeline to be initiated
 * Instance type = add all the instance types you wish to use
 * SNS topic = select the topic we have created in [Step 3](#step-3-create-an-sns-topic) (in our case it's *image_builder-to-lambda*)
-* VPC, subnet and security groups = select a VPC, subnet and security group you want to use
+* VPC, subnet and security groups = select a VPC, subnet and security group you want to use (create one if needed)
 * Troubleshooting settings = select a key pair you want to use to log in to the machine later if needed
 
 ... and click "Next" button on the bottom of the page.
@@ -181,27 +181,27 @@ On the next page, under "Output AMI" create a tag with the key *ASGname* with a 
 
 Now select the pipeline you have just created, click the "Actions" button and select "Run pipeline".
 
-You have now succesfully created a pipeline, which is now building the first AMI to be used in your Auto Scaling group.
+Congratulations! You have now succesfully created a pipeline, which is now building its first AMI to be used in your Auto Scaling group.
 
 ### Step 5: Create a Lambda function
 Now we need to create a Lambda function that will do all the job for us. To do that navigate to [Lambda](https://console.aws.amazon.com/lambda/) in your AWS Console and click the "Create function" button.
 
-Select "Author from scratch", give the function a name (in our case we'll use *update_asg_amiid_function*, and select Python 3.8 as Runtime. Under "Choose or create an execution role" select the role you have created in [Step 2](#step-2-create-a-iam-role-for-lambda) (in our case it's *lambda_function_refresh_ami*) and click "Create function" button on the bottom of the page.
+Select "Author from scratch", give the function a name (we'll use *update_asg_amiid_function*, and select Python 3.8 as Runtime. Under "Choose or create an execution role" select the role you have created in [Step 2](#step-2-create-a-iam-role-for-lambda) (in our case it's *lambda_function_refresh_ami*) and click "Create function" button on the bottom of the page.
 
-You should now be displayed your Lambda function page. Below the designer, remove everything in the "Function code" field and copy contents of [lambda.py](https://github.com/hellomynameisfi/aws-asg_auto_amiid_update/blob/master/lambda.py). Now above, in the "Designer" click "Add trigger". In the "Trigger configuration" select SNS as the trigger and select the SNS topic we've created in [Step 3](#step-3-create-an-sns-topic) (in our case it's *image_builder-to-lambda*) and click "Add". Now click "Save" in the top right corner of your function page.
+You should now be displayed your Lambda function page. Below the designer, remove everything in the "Function code" field and copy contents of [lambda.py](https://github.com/hellomynameisfi/aws-asg_auto_amiid_update/blob/master/lambda.py). Now in the "Designer" click "Add trigger". In the "Trigger configuration" select SNS as the trigger and select the SNS topic we've created in [Step 3](#step-3-create-an-sns-topic) (in our case it's *image_builder-to-lambda*) and click "Add" (this created the subscription we did not configure in [Step 3](#step-3-create-an-sns-topic). Now click "Save" in the top right corner of your function page.
 
 You have now succesfully created a Lambda function that is triggered by an SNS message.
 
 ### Step 6: Create a Launch template
-By now pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to wait a bit longer).
+By now the pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to grab a coffee and wait a bit longer).
 
 In your AWS console navigate to EC2 and choose ["Launch Templates"](https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates) from the left panel and click the "Create launch template" button.
 
-Here you need to name your template (we will use *server_asg_to_update-template*). Under "Amazon machine image (AMI)" selec the AMI we have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *pipeline-example* - there should be only one AMI ID beginning with this name) Under "Instance type" select the instance type you wish your Auto Scaling group to use. Select your desired key under "Key pair". Under "Network settings" select the Security Group you wish to use. (Optional) If you are using t2 or t3 instances under "Advanced details" you might want to enable the "T2/T3 Unlimited" option.
+Here you need to name your template (we'll use *server_asg_to_update-template*). Under "Amazon machine image (AMI)" selec the AMI we have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *pipeline-example* - there should be only one AMI ID beginning with this name, so it should not be hard to find, or you can search by AMI ID of the newly created image). Under "Instance type" select the instance type you wish your Auto Scaling group to use. Select your desired key under "Key pair". Under "Network settings" select the Security Group you wish to use. Optionally, if you are using t2 or t3 instances under "Advanced details" you might want to enable the "T2/T3 Unlimited" option.
 
 Click "Create launch template" button at the bottom of the page.
 
-You have now succesfully created a Launch template that will be used to create the Auto Scaling group.
+Congratulations! You have now succesfully created a Launch template that will be used to create the Auto Scaling group.
 
 ### Step 7: Create Auto Scaling group from Launch Template
 We are almost there! Navigate to ["Launch Templates"](https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates) if you are not already there after [Step 6](#step-6-create-a-launch-template). Select under the "Actions" button sellect "Create Auto Scaling group".
@@ -223,10 +223,12 @@ You can add notification if you want to receive a message (or trigger something 
 
 **IMPORTANT!** In Tags create a tag with a key *Name* and value equal to the final name of your Auto Scaling instance (in our case we we will use *image_from_pipeline-example-autoscaling*). If you don't provide a name for the instance the name will be just left blank by the ASG after instance creation. Click the "Next" button on the bottom of the page. Review if everything is ok and click the "Create Auto Scaling group" button on the bottom of the page.
 
+Congratulations! You have now succesfully created an Auto Scaling group that will be updated with a new AMI ID by the Lambda function created earlier.
+
 ### Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling group
 This is the easiest part. Everything is ready now. It's time to fully test the solution for the first time. All you have to do is navigate to [EC2 Image builder](https://console.aws.amazon.com/imagebuilder/), select the pipeline you have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *pipeline-example*), click the "Actions" button and select "Run pipeline".
 
-Now, after successfull image creation in EC2 Image builder you should see the AMI ID change after a few moments in your ASG (in our case it's *server_asg_to_update*).
+Congratulations! After successfull image creation in EC2 Image builder you should see the AMI ID change (after a few moments) in your ASG (in our case it's the name of the ASG is *server_asg_to_update*).
 
 ### Step 9: Profit!
 It's much more of a hands-on approach then the one provided by aws-samples, but at the same time you can tailor this solution more easily to your needs and already resources you've already. Enjoy!
