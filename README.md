@@ -182,16 +182,21 @@ Now select the pipeline you have just created, click the "Actions" button and se
 You have now succesfully created a pipeline, which is now building the first AMI to be used in your Auto Scaling group.
 
 ### Step 5: Create a Lambda function
-Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
+Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button.
+
+Select "Author from scratch", give the function a name (in our case we'll use *update_asg_amiid_function*, and select Python 3.8 as Runtime. Under "Choose or create an execution role" select the role you have created in [Step 2](#step-2-create-a-iam-role-for-lambda) (in our case it's *lambda_function_refresh_ami*) and click "Create function" button on the bottom of the page.
+
+You should now be displayed your Lambda function page. Below the designer, remove everything in the "Function code" field and copy contents of [lambda.py](https://raw.githubusercontent.com/hellomynameisfi/aws-asg_auto_amiid_update/master/lambda.py?token=AQKBCKD2VERRINL55L7FQMK7GPPDO). Now above, in the "Designer" click "Add trigger". In the "Trigger configuration" select SNS as the trigger and select the SNS topic we've created in [Step 3](#step-3-create-an-sns-topic) (in our case it's *image_builder-to-lambda*) and click "Add". Now click "Save" in the top right corner of your function page.
+
+You have now succesfully created a Lambda function that is triggered by an SNS message.
 
 ### Step 6: Create a Launch template
-Get yourself some coffee and wait till the pipeline image is fully created and marked as "Available" in EC2 Image Builder (this may take some time). 
+By now pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to wait a bit longer).  
 
 ### Step 7: Create Auto Scaling group from Launch Template
 
 
 
-Copy contents of [lambda.py](https://raw.githubusercontent.com/hellomynameisfi/aws-asg_auto_amiid_update/master/lambda.py?token=AQKBCKD2VERRINL55L7FQMK7GPPDO)
 
 ### Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling group
 
