@@ -36,6 +36,7 @@ def get_ami_id_from_ib_notification(ib_notification):
 			return(None)
 
 def get_asg_name_from_ib_notification(ib_notification):
+	# Parse Image Builder notification and look up ASG name amiTag
 	return(ib_notification['distributionConfiguration']['distributions'][0]['amiDistributionConfiguration']['amiTags']['ASGname'])
 
 def get_launch_template_id_for_asg(asg_name):
