@@ -14,7 +14,7 @@ This solution is building on "Sample EC2 Auto Scaling groups Instance Refresh so
 ## Setup
 To run this project, install it locally using npm:
 
-### Create a IAM Role for EC2 Image Builder
+### Step 1: Create a IAM Role for EC2 Image Builder
 First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to IAM in youe ARS Console (https://console.aws.amazon.com/iam/) and under Access management on the left panel select "Roles" (https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
 
 After being taken to the next screen select:
@@ -56,7 +56,7 @@ Now click the "Review policy" button at the bottom of the page. Give the policy 
 
 You have now succesfully created a role for your EC2 Image Builder pipeline. Let's continue.
 
-### Create a IAM Role for Lambda
+### Step 2: Create a IAM Role for Lambda
 We also need to create the role for the Lambda function to be able to update the Auto Scaling Group. The process is quite similiar to what we did in when we created a role for EC2 Image Builder.
 
 Navigate to IAM in youe ARS Console (https://console.aws.amazon.com/iam/) and under Access management on the left panel select "Roles" (https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
@@ -72,6 +72,7 @@ Here you will need to add the following policy:
 
 Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page. Here you will have to provide a name for your role. Let's call it: *lambda_function_refresh_ami*. Click the "Create role" button at the bottom of the screen.
 
+Search for the role you just created (https://console.aws.amazon.com/iam/home?/roles#/) and click on it. Now you can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
 ```
 {
     "Version": "2012-10-17",
@@ -131,16 +132,16 @@ Now click the "Review policy" button at the bottom of the page. Give the policy 
 
 You have now succesfully created a role for your Lambda function. Let's continue.
 
+### Step 3: Create an SNS topic
+In your AWS console navigate to SNS and choose "Topics" from the left panel (https://console.aws.amazon.com/sns/v3/home?/topics). Click the "Create topic" button. Give it a name: *image_builder-to-lambda*, and click "Create topic" button at the bottom of the page.
 
+YYou have now succesfully created an SNS topic for your setup. Don't worry about a subscription, we'll do it later. Let's continue.
 
-
-
-### Create your pipeline
+### Step 4: Create your pipeline
 Navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling Group.
 
 
-### Create an SNS topic
-asdasdasdasd
+
 
 ### Create a Lambda function
 Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
