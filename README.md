@@ -8,6 +8,8 @@
 * [Step 4: Create your pipeline and run it](#step-4-create-your-pipeline-and-run-it)
 * [Step 5: Create a Lambda function](#step-5-create-a-lambda-function)
 * [Step 6: Create a Launch template](#step-6-create-a-launch-template)
+* [Step 7: Create Auto Scaling group from Launch Template](#step-7-create-auto-scaling-group-from-launch-template)
+* [Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling group](#step-7-create-auto-scaling-group-from-launch-template)
 
 
 ## General info
