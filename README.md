@@ -21,7 +21,7 @@ This solution is building on ["Sample EC2 Auto Scaling groups Instance Refresh s
 ### Step 1: Create a IAM role for EC2 Image Builder
 First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to [IAM](https://console.aws.amazon.com/iam/) in your AWS Console and under Access management on the left panel select ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
 
-After being taken to the next screen select: AWS service + EC2 and click the "Next: Permissions" button at the bottom of the page.
+After being taken to the next screen select: "AWS service" and "EC2", and click the "Next: Permissions" button at the bottom of the page.
 
 Here we will need to add the following policies: 
 * AmazonSSMManagedInstanceCore 
@@ -61,7 +61,7 @@ We also need to create the role for the Lambda function to be able to update the
 
 Navigate to [IAM](https://console.aws.amazon.com/iam/) in youe AWS Console and under Access management on the left panel select ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
 
-After being taken to the next screen select AWS service + Lambda and click the "Next: Permissions" button at the bottom of the page.
+After being taken to the next screen select "AWS service" and "Lambda", and click the "Next: Permissions" button at the bottom of the page.
 
 Here you will need to add the following policy: 
 * AWSLambdaBasicExecutionRole
