@@ -50,9 +50,9 @@ Search for the role you just created (https://console.aws.amazon.com/iam/home?/r
     ]
 }
 ```
-Now click the "Reviev policy" button at the bottom of the page. Give the policy a name: *image_builder_s3-readonly-access*, and create the policy by clicking "Create policy" button at the bottom of the page.
+Now click the "Review policy" button at the bottom of the page. Give the policy a name: *image_builder_s3-readonly-access*, and create the policy by clicking "Create policy" button at the bottom of the page.
 
-You have now succesfully created a role for your Image Builder pipeline. Let's continue.
+You have now succesfully created a role for your EC2 Image Builder pipeline. Let's continue.
 
 ### Create a IAM Role for Lambda
 We also need to create the role for the Lambda function to be able to update the Auto Scaling Group. 
@@ -112,10 +112,10 @@ We also need to create the role for the Lambda function to be able to update the
 }
 ```
 
+Now click the "Review policy" button at the bottom of the page. Give the policy a name: *lambda_refresh_ami*, and create the policy by clicking "Create policy" button at the bottom of the page.
 
+You have now succesfully created a role for your Lambda function. Let's continue.
 
-
-lambda_refresh_ami
 
 
 
