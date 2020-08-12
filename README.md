@@ -132,7 +132,7 @@ Search for the [role](https://console.aws.amazon.com/iam/home?/roles#/) you just
 
 Now click the "Review policy" button at the bottom of the page.
 
-Give the policy a name: *lambda_asg-refresh_ami*, and create the policy by clicking "Create policy" button at the bottom of the page.
+Give the policy a name (we'll use *lambda_asg-refresh_ami*), and create the policy by clicking "Create policy" button at the bottom of the page.
 
 You have now succesfully created a role for your Lambda function. Let's continue.
 
