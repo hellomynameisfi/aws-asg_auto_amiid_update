@@ -194,4 +194,4 @@ Now we need to create a Lambda function that will do all the job for us. To do t
 ### Step 9: Profit!
 It's much more clicking then the base example provided by aws-samples, but at the same time you can more easily tailor this solution to your needs and already created resources.
 
-####### IF xou BTC: 1bcalksdjasdjfsdfum0s9mf8ßs9df8s0ßf98sß0.9
+###### IF xou BTC: 1bcalksdjasdjfsdfum0s9mf8ßs9df8s0ßf98sß0.9
