@@ -1,5 +1,4 @@
 # aws_imgbldr_asg_from_amiTags
-Link to base material: https://github.com/aws-samples/ec2-auto-scaling-instance-refresh-sample
 
 ## Table of contents
 * [General info](#general-info)
@@ -7,7 +6,7 @@ Link to base material: https://github.com/aws-samples/ec2-auto-scaling-instance-
 * [Setup](#setup)
 
 ## General info
-This project is simple Lorem ipsum dolor generator.
+These are step-by-step instructions on how to automatically update the ami-ID inside an Auto Scalig Group with an ami-ID from a Image Builder generated image. This solution is building on "Sample EC2 Auto Scaling groups Instance Refresh solution" by aws-samples (https://github.com/aws-samples/ec2-auto-scaling-instance-refresh-sample), but is taking on a bit more hands-on approach.
 	
 ## Technologies
 Project is created with:
