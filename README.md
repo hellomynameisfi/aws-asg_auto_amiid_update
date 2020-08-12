@@ -135,7 +135,7 @@ You have now succesfully created a role for your Lambda function. Let's continue
 ### Step 3: Create an SNS topic
 In your AWS console navigate to SNS and choose "Topics" from the left panel (https://console.aws.amazon.com/sns/v3/home?/topics). Click the "Create topic" button. Give it a name: *image_builder-to-lambda*, and click "Create topic" button at the bottom of the page.
 
-YYou have now succesfully created an SNS topic for your setup. Don't worry about a subscription, we'll do it later. Let's continue.
+You have now succesfully created an SNS topic for your setup. Don't worry about a subscription, we'll do it later. Let's continue.
 
 ### Step 4: Create your pipeline and run it
 Navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling Group.
