@@ -197,7 +197,7 @@ By now pipeline image should be fully created and marked as "Available" in EC2 I
 
 In your AWS console navigate to EC2 and choose ["Launch Templates"](https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates) from the left panel and click the "Create launch template" button.
 
-Here you need to name your template (we will use *server_asg_to_update-template*). Under "Instance type" select the instance type you wish your Auto Scaling group to use. Select your desired key under "Key pair". Under "Network settings" select the Security Group you wish to use. (Optional) If you are using t2 or t3 instances under "Advanced details" you might want to enable the "T2/T3 Unlimited" option.
+Here you need to name your template (we will use *server_asg_to_update-template*). Under "Amazon machine image (AMI)" selec the AMI we have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *pipeline-example* - there should be only one AMI ID beginning with this name) Under "Instance type" select the instance type you wish your Auto Scaling group to use. Select your desired key under "Key pair". Under "Network settings" select the Security Group you wish to use. (Optional) If you are using t2 or t3 instances under "Advanced details" you might want to enable the "T2/T3 Unlimited" option.
 
 Click "Create launch template" button at the bottom of the page.
 
