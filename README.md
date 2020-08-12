@@ -1,4 +1,4 @@
-# Auto Scaling groups Instance Refresh solution
+# Auto Scaling groups Instance Refresh from amiTag solution
 
 ## Table of contents
 * [General info](#general-info)
