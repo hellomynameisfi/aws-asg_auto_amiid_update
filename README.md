@@ -195,7 +195,9 @@ You have now succesfully created a Lambda function that is triggered by an SNS m
 ### Step 6: Create a Launch template
 By now pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to wait a bit longer). 
 
-Now navigate to (https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates)
+In your AWS console navigate to EC2 and choose ["Launch Templates"](https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates) from the left panel and click the "Create launch template" button.
+
+
 
 ### Step 7: Create Auto Scaling group from Launch Template
 
