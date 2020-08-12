@@ -2,7 +2,6 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Technologies](#technologies)
 * [Setup](#setup)
 
 ## General info
@@ -10,14 +9,14 @@ These are step-by-step instructions on how to automatically update the ami-ID in
 
 This solution is building on "Sample EC2 Auto Scaling groups Instance Refresh solution" by aws-samples (https://github.com/aws-samples/ec2-auto-scaling-instance-refresh-sample).
 	
-## Technologies
-Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
-	
 ## Setup
 To run this project, install it locally using npm:
+
+
+
+
+# Create a Lambda function
+asdasdas
 
 ```
 code
