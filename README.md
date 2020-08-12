@@ -227,4 +227,4 @@ This is the easiest part. Everything is ready now. It's time to fully test the s
 Now, after successfull image creation in EC2 Image builder you should see the AMI ID change after a few moments in your ASG (in our case it's server_asg_to_update).
 
 ### Step 9: Profit!
-It's much more clicking in this solution then the in the base example provided by aws-samples, but at the same time you can tailor this solution more easily to your needs and already created resources. If you need anything additional that has not been set up in this example, just add it along the way to your configuration.
+It's much more of a hands-on approach then the one provided by aws-samples, but at the same time you can tailor this solution more easily to your needs and already resources you've already. Enjoy!
