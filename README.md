@@ -208,7 +208,7 @@ We are almost there! Navigate to ["Launch Templates"](https://console.aws.amazon
 
 **IMPORTANT!** The name if the ASG has to be the same as the amiTag we have set in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *server_asg_to_update*)!!!
 
-**IMPORTANT!** Under "Launch template"/"Version" select "Latest" and click the "Next" button on the bottom of the page.
+**IMPORTANT!** Under "Launch template", "Version" select "Latest" and click the "Next" button on the bottom of the page.
 
 On the next page select "Adhere to launch template", choose VPS and subnets you want to use. Click the "Next" button on the bottom of the page.
 
