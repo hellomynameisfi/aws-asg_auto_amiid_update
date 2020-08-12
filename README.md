@@ -21,11 +21,32 @@ Here you will need to add the following Policies:
 * AmazonSSMManagedInstanceCore 
 * EC2InstanceProfileForImageBuilder 
 
-Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page.
+Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page. Here you will have to provide a name for your role. Let's call it: *imagebuilder_pipeline_role*. Click the "Create role" button at the bottom of the screen.
 
-Here you will have to provide a name for your role. Let's call it: imagebuilder_pipeline_role. Click the "Create role" button at the bottom of the screen.
+Search for the role you just created (https://console.aws.amazon.com/iam/home?/roles#/) and click on it. Now you can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
 
-Search for the role you just created (https://console.aws.amazon.com/iam/home?/roles#/) and click on it. 
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::gitlab-ansible"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::gitlab-ansible/*"
+        }
+    ]
+}
+```
+Now click the "Reviev policy" button at the bottom of the page. Give the policy a name: *image_builder_s3-readonly-access*, and create the policy by clicking "Create policy" button at the bottom of the page.
 
 ### Create your pipeline
 asdasdasdasdsadasdasdd
@@ -40,6 +61,4 @@ asdasdasdasd
 
 ### Create a Lambda function
 Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
-```
-code
-```
+
