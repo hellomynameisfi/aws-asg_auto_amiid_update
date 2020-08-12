@@ -56,7 +56,7 @@ Search for the role we just created in ["Roles"](https://console.aws.amazon.com/
 ```
 Now click the "Review policy" button at the bottom of the page.
 
-Give the policy a name: *image_builder_s3-readonly-access*, and create the policy by clicking "Create policy" button at the bottom of the page.
+Give the policy a name (we'll use *image_builder_s3-readonly-access*), and create the policy by clicking "Create policy" button at the bottom of the page.
 
 You have now succesfully created a role for your EC2 Image Builder pipeline. Let's continue.
 
