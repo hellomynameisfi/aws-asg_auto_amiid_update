@@ -5,7 +5,7 @@
 * [Step 1: Create an IAM role for EC2 Image Builder](#step-1-create-a-iam-role-for-ec2-image-builder)
 * [Step 2: Create an IAM role for Lambda](#step-2-create-a-iam-role-for-lambda)
 * [Step 3: Create a SNS topic](#step-3-create-an-sns-topic)
-* [Step 4: Create your pipeline and run it]()
+* [Step 4: Create your pipeline and run it](#step-4-create-your-pipeline-and-run-it)
 
 
 ## General info
