@@ -206,20 +206,20 @@ You have now succesfully created a Launch template that will be used to create t
 ### Step 7: Create Auto Scaling group from Launch Template
 We are almost there! Navigate to ["Launch Templates"](https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates) if you are not already there after [Step 6](#step-6-create-a-launch-template). Select under the "Actions" button sellect "Create Auto Scaling group".
 
-IMPORTANT! The name if the ASG has to be the same as the amiTag we have set in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *server_asg_to_update*)!!!
+**IMPORTANT!** The name if the ASG has to be the same as the amiTag we have set in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *server_asg_to_update*)!!!
 
-IMPORTANT! Under "Launch template"/"Version" select "Latest" and click the "Next" button on the bottom of the page.
+**IMPORTANT!** Under "Launch template"/"Version" select "Latest" and click the "Next" button on the bottom of the page.
 
 On the next page select "Adhere to launch template", choose VPS and subnets you want to use. Click the "Next" button on the bottom of the page.
 
-Tick "Enable load balancing" and "Enable group metrics collection within CloudWatch" box and click the "Next" button on the bottom of the page.
+Tick "Enable load balancing" and select or create a Target Group. If you need to create one you just need to select "Instance", give it a name and click the "Next" button on the bottom of the page and then click "Create target group" at the bottom of the next page). Tick the "Enable group metrics collection within CloudWatch" box and click the "Next" button on the bottom of the page.
 
 "Group size" (this is not optional). Fill it with values depending on how big do you want the Auto Scaling group to be.
 "Scaling policies" (this also is not optional). Select "Target tracking scaling policy" and fill it with values depending on how big do you want the Auto Scaling group to be (most probably you'll want to disable the scale-in capabilities of the group). Click the "Next" button on the bottom of the page.
 
 You can add notification if you want to receive a message (or trigger something additional) every time a new instance is deployed. Click the "Next" button on the bottom of the page.
 
-In Tags acreate a tag with a key *Name* and value equal to the final name of your Auto Scaling instance (in our case we we will use *image_from_pipeline-example-autoscaling*). If you don't provide a name for the instance the name will be just left blank by the ASG after instance creation. Click the "Next" button on the bottom of the page. Review if everything is ok and click the "Create Auto Scaling group" button on the bottom of the page.
+**IMPORTANT!** In Tags create a tag with a key *Name* and value equal to the final name of your Auto Scaling instance (in our case we we will use *image_from_pipeline-example-autoscaling*). If you don't provide a name for the instance the name will be just left blank by the ASG after instance creation. Click the "Next" button on the bottom of the page. Review if everything is ok and click the "Create Auto Scaling group" button on the bottom of the page.
 
 ### Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling group
 This is the easiest part. Everything is ready now. It's time to fully test the solution for the first time. All you have to do is navigate to EC2 Image builder](https://console.aws.amazon.com/imagebuilder/), select the pipeline you have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's pipeline-example), click the "Actions" button and select "Run pipeline".
