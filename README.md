@@ -140,6 +140,24 @@ You have now succesfully created an SNS topic for your setup. Don't worry about 
 ### Step 4: Create your pipeline and run it
 Now we need to set a pipeline and run it for the first time to get a new AMI ID. To do that navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling Group.
 
+Click the "Create image pipeline" button. On the next page select a Linux/Windows distribution you want to use and under "Select image" choose "Select managed images". Here you can choose the distribution version you wish to use. After selecting the image tick the "Always build latest version." box (may be ommited if your setup does not allow this).
+
+Now we have to add at least one component to our image pipeline. Let's quickly create one if you don't have one already. For that click "Create build component". On the page you were taken to fill out the following:
+* Component name = "Update OS"
+* Component version = 1.0.0
+* Content = remove whatever was there and replace it with:
+```
+name: 'Update OS'
+description: 'This component updates the OS'
+schemaVersion: 1.0
+phases:
+  - name: build
+    steps:
+      - name: UpdateOS
+        action: UpdateOS
+```
+... and click
+
 ### Step X: Create Target group
 
 ### Step X: Create Auto Scaling Group from Launch Template
