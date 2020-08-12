@@ -27,7 +27,7 @@ Here we will need to add the following policies:
 * AmazonSSMManagedInstanceCore 
 * EC2InstanceProfileForImageBuilder 
 
-Now click "Next: Tags" button on the bottom of the page,add tags if needed by your setup) and again click "Next: Review" on the bottom of the page.
+Now click "Next: Tags" and again click "Next: Review" on the bottom of the page.
 
 Here we will have to provide a name for our role (we'll use *imagebuilder_pipeline_role*). Click the "Create role" button at the bottom of the page.
 
@@ -70,7 +70,7 @@ After being taken to the next screen select "AWS service" and "Lambda", and clic
 Here you will need to add the following policy: 
 * AWSLambdaBasicExecutionRole
 
-Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page.
+Now click "Next: Tags" button and again click "Next: Review" on the bottom of the page.
 
 Here you will have to provide a name for your role (we'll use *lambda_function_refresh_ami*). Click the "Create role" button at the bottom of the screen.
 
