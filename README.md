@@ -6,6 +6,7 @@
 * [Step 2: Create an IAM role for Lambda](#step-2-create-a-iam-role-for-lambda)
 * [Step 3: Create a SNS topic](#step-3-create-an-sns-topic)
 * [Step 4: Create your pipeline and run it](#step-4-create-your-pipeline-and-run-it)
+* [Step 5: Create a Launch template]
 
 
 ## General info
@@ -179,7 +180,8 @@ Now select the pipeline you have just created, click the "Actions" button and se
 
 You have now succesfully created a pipeline, which is now building the first AMI to be used in your Auto Scaling Group.
 
-### Step X: Create Target group
+### Step 5: Create a Launch template
+asdasdsd
 
 ### Step X: Create Auto Scaling Group from Launch Template
 
