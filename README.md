@@ -27,7 +27,9 @@ Here we will need to add the following policies:
 * AmazonSSMManagedInstanceCore 
 * EC2InstanceProfileForImageBuilder 
 
-Now click "Next: Tags" button on the bottom of the page (add tags if needed by your setup) and again click "Next: Review" on the bottom of the page. Here we will have to provide a name for our role. Let's call it: *imagebuilder_pipeline_role*. Click the "Create role" button at the bottom of the screen.
+Now click "Next: Tags" button on the bottom of the page,add tags if needed by your setup) and again click "Next: Review" on the bottom of the page.
+
+Here we will have to provide a name for our role. Let's call it: *imagebuilder_pipeline_role*. Click the "Create role" button at the bottom of the page.
 
 Search for the role we just created in ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) and click on it. Now we can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
 
@@ -52,7 +54,9 @@ Search for the role we just created in ["Roles"](https://console.aws.amazon.com/
     ]
 }
 ```
-Now click the "Review policy" button at the bottom of the page. Give the policy a name: *image_builder_s3-readonly-access*, and create the policy by clicking "Create policy" button at the bottom of the page.
+Now click the "Review policy" button at the bottom of the page.
+
+Give the policy a name: *image_builder_s3-readonly-access*, and create the policy by clicking "Create policy" button at the bottom of the page.
 
 You have now succesfully created a role for your EC2 Image Builder pipeline. Let's continue.
 
@@ -66,7 +70,9 @@ After being taken to the next screen select "AWS service" and "Lambda", and clic
 Here you will need to add the following policy: 
 * AWSLambdaBasicExecutionRole
 
-Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page. Here you will have to provide a name for your role. Let's call it: *lambda_function_refresh_ami*. Click the "Create role" button at the bottom of the screen.
+Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page.
+
+Here you will have to provide a name for your role. Let's call it: *lambda_function_refresh_ami*. Click the "Create role" button at the bottom of the screen.
 
 Search for the [role](https://console.aws.amazon.com/iam/home?/roles#/) you just created and click on it. Now you can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
 ```
@@ -124,7 +130,9 @@ Search for the [role](https://console.aws.amazon.com/iam/home?/roles#/) you just
 }
 ```
 
-Now click the "Review policy" button at the bottom of the page. Give the policy a name: *lambda_asg-refresh_ami*, and create the policy by clicking "Create policy" button at the bottom of the page.
+Now click the "Review policy" button at the bottom of the page.
+
+Give the policy a name: *lambda_asg-refresh_ami*, and create the policy by clicking "Create policy" button at the bottom of the page.
 
 You have now succesfully created a role for your Lambda function. Let's continue.
 
@@ -204,7 +212,9 @@ We are almost there! Navigate to ["Launch Templates"](https://console.aws.amazon
 
 On the next page select "Adhere to launch template", choose VPS and subnets you want to use. Click the "Next" button on the bottom of the page.
 
-Tick "Enable load balancing" and select or create a Target Group. If you need to create one you just need to select "Instance", give it a name and click the "Next" button on the bottom of the page and then click "Create target group" at the bottom of the next page). Tick the "Enable group metrics collection within CloudWatch" box and click the "Next" button on the bottom of the page.
+Tick "Enable load balancing" and select or create a Target Group. To create one click "Create Target group". All you need to select is "Instance", give it a name and click the "Next" button on the bottom of the page and then click "Create target group" at the bottom of the next page.
+
+Tick the "Enable group metrics collection within CloudWatch" box and click the "Next" button on the bottom of the page.
 
 "Group size" (this is not optional). Fill it with values depending on how big do you want the Auto Scaling group to be.
 "Scaling policies" (this also is not optional). Select "Target tracking scaling policy" and fill it with values depending on how big do you want the Auto Scaling group to be (most probably you'll want to disable the scale-in capabilities of the group). Click the "Next" button on the bottom of the page.
