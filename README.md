@@ -15,7 +15,11 @@ To run this project, install it locally using npm:
 ### Create a IAM Role for Image Builder
 First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to IAM in youe ARS Console (https://console.aws.amazon.com/iam/) and under Access management on the left panel select "Roles" (https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
 
-After being taken to the next screen select: "AWS service" + "EC2" and click the "Next: Permissions" button at the bottom of the page.
+After being taken to the next screen select:
+	* AWS service
+	* EC2
+
+... and click the "Next: Permissions" button at the bottom of the page.
 
 Here you will need to add the following Policies: 
 * AmazonSSMManagedInstanceCore 
@@ -47,6 +51,8 @@ Search for the role you just created (https://console.aws.amazon.com/iam/home?/r
 }
 ```
 Now click the "Reviev policy" button at the bottom of the page. Give the policy a name: *image_builder_s3-readonly-access*, and create the policy by clicking "Create policy" button at the bottom of the page.
+
+You have now succesfully created a role for your Image Builder pipeline. Let's continue.
 
 ### Create your pipeline
 asdasdasdasdsadasdasdd
