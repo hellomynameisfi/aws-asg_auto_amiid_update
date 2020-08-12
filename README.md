@@ -177,7 +177,7 @@ On the next page, under "Output AMI" create a tag with the key *ASGname* with a 
 
 Now select the pipeline you have just created, click the "Actions" button and select "Run pipeline".
 
-You have now succesfully created a pipeline, which is now creating the first AMI ID for you Auto Scaling Group.
+You have now succesfully created a pipeline, which is now building the first AMI to be used in your Auto Scaling Group.
 
 ### Step X: Create Target group
 
