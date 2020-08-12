@@ -183,9 +183,15 @@ You have now succesfully created a pipeline, which is now building the first AMI
 ### Step 5: Create a Launch template
 asdasdsd
 
-### Step X: Create Auto Scaling Group from Launch Template
+### Step 6: Create Auto Scaling Group from Launch Template
 
-### Step X: Create a Lambda function
+### Step 7: Create a Lambda function
 Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
 
-### Step X: Profit!
+### Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling Group
+
+
+### Step 9: Profit!
+It's much more clicking then the base example provided by aws-samples, but at the same time you can more easily tailor this solution to your needs and already created resources.
+
+####### IF xou BTC: 1bcalksdjasdjfsdfum0s9mf8ßs9df8s0ßf98sß0.9
