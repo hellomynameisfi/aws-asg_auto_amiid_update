@@ -54,13 +54,15 @@ Now click the "Reviev policy" button at the bottom of the page. Give the policy 
 
 You have now succesfully created a role for your Image Builder pipeline. Let's continue.
 
-### Create your pipeline
-Navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling Group.
-
 ### Create a IAM Role for Lambda
 We also need to create the role for the Lambda function to be able to update the Auto Scaling Group. 
 
 lambda_refresh_ami
+
+
+### Create your pipeline
+Navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling Group.
+
 
 ### Create an SNS topic
 asdasdasdasd
