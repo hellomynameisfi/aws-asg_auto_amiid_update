@@ -162,7 +162,7 @@ Now close this window and return to the one where we were configuring the pipeli
 
 If you have a valid test you can use, please add it in the "Test" area. For this example we will not be doing this as this step is optional. Click "Next" button on the bottom of the page.
 
-
+Here you have to provide a name for your pipeline (we will use *pipeline-example*), under "IAM role" select the EC2 role you have selected in [Step 1](#step-1-create-a-iam-role-for-ec2-image-builder)
 
 ### Step X: Create Target group
 
