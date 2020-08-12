@@ -188,6 +188,8 @@ asdasdsd
 ### Step 7: Create a Lambda function
 Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
 
+Copy contents of [lambda.py](https://raw.githubusercontent.com/hellomynameisfi/aws-asg_auto_amiid_update/master/lambda.py?token=AQKBCKD2VERRINL55L7FQMK7GPPDO)
+
 ### Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling group
 
 
