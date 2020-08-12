@@ -204,4 +204,4 @@ By now pipeline image should be fully created and marked as "Available" in EC2 I
 
 
 ### Step 9: Profit!
-It's much more clicking then the base example provided by aws-samples, but at the same time you can more easily tailor this solution to your needs and already created resources.
+It's much more clicking in this solution then the in the base example provided by aws-samples, but at the same time you can tailor this solution more easily to your needs and already created resources.
