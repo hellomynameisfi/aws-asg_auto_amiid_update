@@ -204,7 +204,7 @@ Click "Create launch template" button at the bottom of the page.
 You have now succesfully created a Launch template that will be used to create the Auto Scaling group.
 
 ### Step 7: Create Auto Scaling group from Launch Template
-
+We are almost there! Navigate to ["Launch Templates"](https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates) if you are not already there after [Step 6](#step-6-create-a-launch-template).
 
 
 
