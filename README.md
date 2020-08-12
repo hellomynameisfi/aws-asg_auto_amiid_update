@@ -193,11 +193,11 @@ You should now be displayed your Lambda function page. Below the designer, remov
 You have now succesfully created a Lambda function that is triggered by an SNS message.
 
 ### Step 6: Create a Launch template
-By now pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to wait a bit longer). 
+By now pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to wait a bit longer). Navigate to [EC2 Image builder](https://console.aws.amazon.com/imagebuilder/) and select [Images](https://console.aws.amazon.com/imagebuilder/home?#viewImages) from the left panel, select the pipeline you have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *pipeline-example*), click on the version number next to it and click on the latest version image. There you will see the AMI ID (format ami-XXXXXXXXXXXXXXXXX) Run pipeline".
 
 In your AWS console navigate to EC2 and choose ["Launch Templates"](https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates) from the left panel and click the "Create launch template" button.
 
-
+Here you need to name your template (we will use *server_asg_to_update-template*). Now under "Template tags" create a tag with a key *Name* and value equal to the final name of your Auto Scaling instance (in our case we we will use *image_from_pipeline-example-autoscaling*)
 
 ### Step 7: Create Auto Scaling group from Launch Template
 
@@ -205,9 +205,9 @@ In your AWS console navigate to EC2 and choose ["Launch Templates"](https://cons
 
 
 ### Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling group
-This is the easy part. Everything is ready now. It's time to fully test the solution for the first time. All you have to do is navigate to [EC2 Image builder](https://console.aws.amazon.com/imagebuilder/), select the pipeline you have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *pipeline-example*), click the "Actions" button and select "Run pipeline".
+This is the easy part. Everything is ready now. It's time to fully test the solution for the first time. All you have to do is navigate to EC2 Image builder](https://console.aws.amazon.com/imagebuilder/), select the pipeline you have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's pipeline-example), click the "Actions" button and select "Run pipeline".
 
-Now, after successfull image creation in EC2 Image builder you should see the AMI ID change after a few moments in your ASG (in our case it's *server_asg_to_update*).
+Now, after successfull image creation in EC2 Image builder you should see the AMI ID change after a few moments in your ASG (in our case it's server_asg_to_update).
 
 ### Step 9: Profit!
 It's much more clicking in this solution then the in the base example provided by aws-samples, but at the same time you can tailor this solution more easily to your needs and already created resources.
