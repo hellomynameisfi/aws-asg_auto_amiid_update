@@ -29,7 +29,7 @@ Here we will need to add the following policies:
 
 Now click "Next: Tags" button on the bottom of the page,add tags if needed by your setup) and again click "Next: Review" on the bottom of the page.
 
-Here we will have to provide a name for our role. Let's call it: *imagebuilder_pipeline_role*. Click the "Create role" button at the bottom of the page.
+Here we will have to provide a name for our role (we'll use *imagebuilder_pipeline_role*). Click the "Create role" button at the bottom of the page.
 
 Search for the role we just created in ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) and click on it. Now we can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
 
@@ -72,7 +72,7 @@ Here you will need to add the following policy:
 
 Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page.
 
-Here you will have to provide a name for your role. Let's call it: *lambda_function_refresh_ami*. Click the "Create role" button at the bottom of the screen.
+Here you will have to provide a name for your role (we'll use *lambda_function_refresh_ami*). Click the "Create role" button at the bottom of the screen.
 
 Search for the [role](https://console.aws.amazon.com/iam/home?/roles#/) you just created and click on it. Now you can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
 ```
