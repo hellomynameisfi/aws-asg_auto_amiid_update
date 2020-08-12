@@ -156,7 +156,13 @@ phases:
       - name: UpdateOS
         action: UpdateOS
 ```
-... and click
+... and click "Create component" button at the bottom of the page.
+
+Now close this window and return to the one where we were configuring the pipeline in (if you closed it for some reason, you will have to restart this step and instead of creating a new component we are going to select the one we have created a moment ago). You can add your component by clicking "Browse build components", selecting "Owned by me" instead of "Amazon owned", and selecting the desired component (in our case *Update OS ver. 1.0.0*).
+
+
+
+
 
 ### Step X: Create Target group
 
