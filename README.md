@@ -57,7 +57,67 @@ You have now succesfully created a role for your Image Builder pipeline. Let's c
 ### Create a IAM Role for Lambda
 We also need to create the role for the Lambda function to be able to update the Auto Scaling Group. 
 
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "logs:PutLogEvents",
+                "autoscaling:StartInstanceRefresh",
+                "ec2:CreateLaunchTemplateVersion"
+            ],
+            "Resource": [
+                "arn:aws:logs:*:*:log-group:*:log-stream:*",
+                "arn:aws:autoscaling:*:*:autoScalingGroup:*:autoScalingGroupName/*",
+                "arn:aws:ec2:*:*:launch-template/*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:DescribeAutoScalingNotificationTypes",
+                "autoscaling:DescribeLifecycleHookTypes",
+                "autoscaling:DescribeAutoScalingInstances",
+                "autoscaling:DescribeTerminationPolicyTypes",
+                "autoscaling:DescribeScalingProcessTypes",
+                "ec2:DescribeLaunchTemplates",
+                "autoscaling:DescribePolicies",
+                "autoscaling:DescribeTags",
+                "autoscaling:DescribeLaunchConfigurations",
+                "autoscaling:DescribeMetricCollectionTypes",
+                "autoscaling:DescribeLoadBalancers",
+                "autoscaling:DescribeLifecycleHooks",
+                "autoscaling:DescribeAdjustmentTypes",
+                "autoscaling:DescribeScalingActivities",
+                "autoscaling:DescribeAutoScalingGroups",
+                "autoscaling:DescribeAccountLimits",
+                "autoscaling:DescribeScheduledActions",
+                "autoscaling:DescribeLoadBalancerTargetGroups",
+                "autoscaling:DescribeNotificationConfigurations",
+                "autoscaling:DescribeInstanceRefreshes"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": "logs:CreateLogStream",
+            "Resource": "arn:aws:logs:*:*:log-group:*"
+        }
+    ]
+}
+```
+
+
+
+
 lambda_refresh_ami
+
+
 
 
 ### Create your pipeline
