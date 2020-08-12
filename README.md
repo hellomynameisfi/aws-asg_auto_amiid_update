@@ -197,7 +197,7 @@ By now pipeline image should be fully created and marked as "Available" in EC2 I
 
 In your AWS console navigate to EC2 and choose ["Launch Templates"](https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates) from the left panel and click the "Create launch template" button.
 
-Here you need to name your template (we will use *server_asg_to_update-template*). Now under "Template tags" create a tag with a key *Name* and value equal to the final name of your Auto Scaling instance (in our case we we will use *image_from_pipeline-example-autoscaling*). Under "Instance type" select the instance type you wish your Auto Scaling group to use. Select your desired key under "Key pair". Under "Network settings" select the Security Group you wish to use. (Optional) If you are using t2 or t3 instances under "Advanced details" you might want to enable the "T2/T3 Unlimited" option.
+Here you need to name your template (we will use *server_asg_to_update-template*). Under "Instance type" select the instance type you wish your Auto Scaling group to use. Select your desired key under "Key pair". Under "Network settings" select the Security Group you wish to use. (Optional) If you are using t2 or t3 instances under "Advanced details" you might want to enable the "T2/T3 Unlimited" option.
 
 Click "Create launch template" button at the bottom of the page.
 
@@ -208,17 +208,21 @@ We are almost there! Navigate to ["Launch Templates"](https://console.aws.amazon
 
 IMPORTANT! The name if the ASG has to be the same as the amiTag we have set in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *server_asg_to_update*)!!!
 
-Under "Launch template"/"Version" select "Latest" and click the "Next" button on the bottom of the page. On the next page choose VPS and subnets you want to use, tick the "Enable group metrics collection within CloudWatch" box and click the "Next" button on the bottom of the page.
+IMPORTANT! Under "Launch template"/"Version" select "Latest" and click the "Next" button on the bottom of the page.
+
+On the next page select "Adhere to launch template", choose VPS and subnets you want to use. Click the "Next" button on the bottom of the page.
+
+Tick "Enable load balancing" and "Enable group metrics collection within CloudWatch" box and click the "Next" button on the bottom of the page.
 
 "Group size" (this is not optional). Fill it with values depending on how big do you want the Auto Scaling group to be.
-"Scaling policies" (this also is not optional). Fill it with values depending on how big do you want the Auto Scaling group to be (most probably you'll want to disable the scale-in capabilities of the group). Click the "Next" button on the bottom of the page.
+"Scaling policies" (this also is not optional). Select "Target tracking scaling policy" and fill it with values depending on how big do you want the Auto Scaling group to be (most probably you'll want to disable the scale-in capabilities of the group). Click the "Next" button on the bottom of the page.
 
 You can add notification if you want to receive a message (or trigger something additional) every time a new instance is deployed. Click the "Next" button on the bottom of the page.
 
-
+In Tags acreate a tag with a key *Name* and value equal to the final name of your Auto Scaling instance (in our case we we will use *image_from_pipeline-example-autoscaling*). If you don't provide a name for the instance the name will be just left blank by the ASG after instance creation. Click the "Next" button on the bottom of the page. Review if everything is ok and click the "Create Auto Scaling group" button on the bottom of the page.
 
 ### Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling group
-This is the easy part. Everything is ready now. It's time to fully test the solution for the first time. All you have to do is navigate to EC2 Image builder](https://console.aws.amazon.com/imagebuilder/), select the pipeline you have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's pipeline-example), click the "Actions" button and select "Run pipeline".
+This is the easiest part. Everything is ready now. It's time to fully test the solution for the first time. All you have to do is navigate to EC2 Image builder](https://console.aws.amazon.com/imagebuilder/), select the pipeline you have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's pipeline-example), click the "Actions" button and select "Run pipeline".
 
 Now, after successfull image creation in EC2 Image builder you should see the AMI ID change after a few moments in your ASG (in our case it's server_asg_to_update).
 
