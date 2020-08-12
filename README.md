@@ -162,7 +162,19 @@ Now close this window and return to the one where we were configuring the pipeli
 
 If you have a valid test you can use, please add it in the "Test" area. For this example we will not be doing this as this step is optional. Click "Next" button on the bottom of the page.
 
-Here you have to provide a name for your pipeline (we will use *pipeline-example*), under "IAM role" select the EC2 role you have selected in [Step 1](#step-1-create-a-iam-role-for-ec2-image-builder)
+Here you have to provide:
+* Name = a name for your pipeline (we will use *pipeline-example*)
+* IAM role = select the EC2 role you have selected in [Step 1](#step-1-create-a-iam-role-for-ec2-image-builder) (in our case it's *imagebuilder_pipeline_role*)
+* Build schedule = select how you want your pipeline to be initiated
+* Instance type = add all the instance types you wish to use
+* SNS topic = select the topic we have created in [Step 3](#step-3-create-an-sns-topic) (in our case it's *image_builder-to-lambda*)
+* VPC, subnet and security groups = select a VPC, subnet and security group you want to use
+* Troubleshooting settings = select a key pair you want to use to log in to the machine later if needed
+
+... and click "Next" button on the bottom of the page.
+
+
+
 
 ### Step X: Create Target group
 
