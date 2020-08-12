@@ -144,14 +144,14 @@ You have now succesfully created an SNS topic for your setup. Don't worry about 
 ### Step 4: Create your pipeline and run it for the first time
 Now we need to set a pipeline and run it for the first time to get a new AMI ID. To do that navigate to [EC2 Image builder](https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling group.
 
-Click the "Create image pipeline" button. On the next page select a Linux/Windows distribution you want to use and under "Select image" choose "Select managed images". Here you can choose the distribution version you wish to use. After selecting the image tick the "Always build latest version." box (may be ommited if your setup does not allow this).
+Click the "Create image pipeline" button. On the next page select a Linux/Windows distribution you want to use and under "Select image" choose "Select managed images". Here you can choose the distribution version you wish to use. After selecting the image tick the "Always build latest version." box (may be ommited if your setup does not allow it for some reason, but you will be missing out on some security patches for your OS).
 
 Now we have to add at least one component to our image pipeline. Let's quickly create one if you don't have one already. For that click "Create build component". On the page you were taken to fill out the following:
-* Component name = "Update OS"
+* Component name = "Update_OS"
 * Component version = 1.0.0
 * Content = remove whatever was there and replace it with:
 ```
-name: 'Update OS'
+name: 'Update_OS'
 description: 'This component updates the OS'
 schemaVersion: 1.0
 phases:
@@ -162,7 +162,7 @@ phases:
 ```
 ... and click "Create component" button at the bottom of the page.
 
-Now close this window and return to the one where we were configuring the pipeline in (if you closed it for some reason, you will have to restart this step and instead of creating a new component we are going to select the one we have created a moment ago). You can add your component by clicking "Browse build components", selecting "Owned by me" instead of "Amazon owned", and selecting the desired component (in our case *Update OS ver. 1.0.0*).
+Now close this window and return to the one where we were configuring the pipeline in (if you closed it for some reason, you will have to restart this step and instead of creating a new component we are going to select the one we have created a moment ago). You can add your component by clicking "Browse build components", selecting "Owned by me" instead of "Amazon owned", and selecting the desired component (in our case *Update_OS ver. 1.0.0*).
 
 If you have a valid test you can use, please add it in the "Test" area. For this example we will not be doing this as this step is optional. Click "Next" button on the bottom of the page.
 
