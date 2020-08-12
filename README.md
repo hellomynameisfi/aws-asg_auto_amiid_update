@@ -12,12 +12,13 @@ This solution is building on "Sample EC2 Auto Scaling groups Instance Refresh so
 ## Setup
 To run this project, install it locally using npm:
 
-
+### Create a IAM Role for Image Builder
+First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to IAM in youe ARS Console (https://console.aws.amazon.com/iam/) and under Access management on the left panel select "Roles" (https://console.aws.amazon.com/iam/home?/roles#/). 
+lambda-image-builder-refresh 
 
 
 ### Create a Lambda function
-asdasdas
-
+Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
 ```
 code
 ```
