@@ -6,7 +6,8 @@
 * [Step 2: Create an IAM role for Lambda](#step-2-create-a-iam-role-for-lambda)
 * [Step 3: Create a SNS topic](#step-3-create-an-sns-topic)
 * [Step 4: Create your pipeline and run it](#step-4-create-your-pipeline-and-run-it)
-* [Step 5: Create a Launch template](#step-5-create-a-launch-template)
+* [Step 5: Create a Lambda function]()
+* [Step 6: Create a Launch template](#step-6-create-a-launch-template)
 
 
 ## General info
@@ -180,13 +181,15 @@ Now select the pipeline you have just created, click the "Actions" button and se
 
 You have now succesfully created a pipeline, which is now building the first AMI to be used in your Auto Scaling group.
 
-### Step 5: Create a Launch template
+### Step 5: Create a Lambda function
+Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
+
+### Step 6: Create a Launch template
 Get yourself some coffee and wait till the pipeline image is fully created and marked as "Available" in EC2 Image Builder (this may take some time). 
 
-### Step 6: Create Auto Scaling group from Launch Template
+### Step 7: Create Auto Scaling group from Launch Template
 
-### Step 7: Create a Lambda function
-Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
+
 
 Copy contents of [lambda.py](https://raw.githubusercontent.com/hellomynameisfi/aws-asg_auto_amiid_update/master/lambda.py?token=AQKBCKD2VERRINL55L7FQMK7GPPDO)
 
