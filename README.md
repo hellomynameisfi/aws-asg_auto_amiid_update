@@ -137,7 +137,7 @@ Give the policy a name (we'll use *lambda_asg-refresh_ami*), and create the poli
 You have now succesfully created a role for your Lambda function. Let's continue.
 
 ### Step 3: Create an SNS topic
-In your AWS console navigate to SNS and choose ["Topics"](https://console.aws.amazon.com/sns/v3/home?/topics) from the left panel. Click the "Create topic" button. Give it a name: *image_builder-to-lambda*, and click "Create topic" button at the bottom of the page.
+In your AWS console navigate to SNS and choose ["Topics"](https://console.aws.amazon.com/sns/v3/home?/topics) from the left panel. Click the "Create topic" button. Give it a name (we'll use *image_builder-to-lambda*), and click "Create topic" button at the bottom of the page.
 
 You have now succesfully created an SNS topic for your setup. Don't worry about a subscription, we'll do it later. Let's continue.
 
