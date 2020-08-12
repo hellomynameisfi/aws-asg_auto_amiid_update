@@ -68,7 +68,7 @@ After being taken to the next screen select:
 Here you will need to add the following policy: 
 * AWSLambdaBasicExecutionRole
 
-Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page. Here you will have to provide a name for your role. Let's call it: *imagebuilder_lambda_refresh_ami*. Click the "Create role" button at the bottom of the screen.
+Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page. Here you will have to provide a name for your role. Let's call it: *lambda_function_refresh_ami*. Click the "Create role" button at the bottom of the screen.
 
 ```
 {
@@ -125,7 +125,7 @@ Now click "Next: Tags" button on the bottom of the page (add Tags if needed by y
 }
 ```
 
-Now click the "Review policy" button at the bottom of the page. Give the policy a name: *lambda_refresh_ami*, and create the policy by clicking "Create policy" button at the bottom of the page.
+Now click the "Review policy" button at the bottom of the page. Give the policy a name: *lambda_asg-refresh_ami*, and create the policy by clicking "Create policy" button at the bottom of the page.
 
 You have now succesfully created a role for your Lambda function. Let's continue.
 
