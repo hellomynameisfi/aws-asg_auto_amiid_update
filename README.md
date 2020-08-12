@@ -140,8 +140,9 @@ You have now succesfully created an SNS topic for your setup. Don't worry about 
 ### Step 4: Create your pipeline and run it
 Now we need to set a pipeline and run it for the first time to get a new AMI ID. To do that navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling Group.
 
+### Step X: Create Target group
 
-
+### Step X: Create Auto Scaling Group from Launch Template
 
 ### Create a Lambda function
 Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
