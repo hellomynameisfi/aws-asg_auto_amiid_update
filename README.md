@@ -63,7 +63,7 @@ You have now succesfully created a role for your EC2 Image Builder pipeline. Let
 ### Step 2: Create a IAM role for Lambda
 We also need to create the role for the Lambda function to be able to update the Auto Scaling group. The process is quite similiar to what we did in when we created a role for EC2 Image Builder.
 
-Navigate to IAM in youe ARS Console (https://console.aws.amazon.com/iam/) and under Access management on the left panel select "Roles" (https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
+Navigate to [IAM](https://console.aws.amazon.com/iam/) in youe AWS Console and under Access management on the left panel select ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
 
 After being taken to the next screen select:
 * AWS service
