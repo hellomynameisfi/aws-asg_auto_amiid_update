@@ -10,7 +10,8 @@
 * [Step 6: Create a Launch template](#step-6-create-a-launch-template)
 * [Step 7: Create Auto Scaling group from Launch Template](#step-7-create-auto-scaling-group-from-launch-template)
 * [Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling group](#step-7-create-auto-scaling-group-from-launch-template)
-
+* [Security](#security)
+* [License](#license)
 
 ## General info
 These are step-by-step instructions on how to automatically update the AMI ID inside an Auto Scalig Group with an EC2 Image Builder generated one. The goal is to have one function responsible for updating all desired ASG's instead of a function for each ASG separately (and because I was unsuccesfull with the original solution provided by aws-samples). For this purpose we will use an amiTag set in the EC2 Image Builder pipeline instead of a environment variable from within Lambda function.
@@ -234,3 +235,12 @@ Congratulations! After successfull image creation in EC2 Image builder you shoul
 
 ### Step 9: Profit!
 It's much more of a hands-on approach then the one provided by aws-samples, but at the same time you can tailor this solution more easily to your needs and already resources you've already. Enjoy!
+
+## Security
+
+See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+
+## License
+
+This library is licensed under the MIT-0 License. See the LICENSE file.
+
