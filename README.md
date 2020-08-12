@@ -144,6 +144,7 @@ Now we need to set a pipeline and run it for the first time to get a new AMI ID.
 
 ### Step X: Create Auto Scaling Group from Launch Template
 
-### Create a Lambda function
+### Step X: Create a Lambda function
 Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
 
+### Step X: Profit!
