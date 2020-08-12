@@ -1,4 +1,4 @@
-# EC2 Auto Scaling groups Instance Refresh (from amiTag) solution
+# EC2 Auto Scaling groups Instance Refresh (amiTag) solution
 
 ## Table of contents
 * [General info](#general-info)
