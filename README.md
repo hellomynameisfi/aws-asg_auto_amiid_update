@@ -19,7 +19,7 @@ This solution is building on ["Sample EC2 Auto Scaling groups Instance Refresh s
 
 
 ### Step 1: Create a IAM role for EC2 Image Builder
-First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to [IAM](https://console.aws.amazon.com/iam/) in youe AWS Console and under Access management on the left panel select ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
+First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to [IAM](https://console.aws.amazon.com/iam/) in your AWS Console and under Access management on the left panel select ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
 
 After being taken to the next screen select:
 * AWS service
@@ -27,13 +27,13 @@ After being taken to the next screen select:
 
 ... and click the "Next: Permissions" button at the bottom of the page.
 
-Here you will need to add the following policies: 
+Here we will need to add the following policies: 
 * AmazonSSMManagedInstanceCore 
 * EC2InstanceProfileForImageBuilder 
 
-Now click "Next: Tags" button on the bottom of the page (add tags if needed by your setup) and again click "Next: Review" on the bottom of the page. Here you will have to provide a name for your role. Let's call it: *imagebuilder_pipeline_role*. Click the "Create role" button at the bottom of the screen.
+Now click "Next: Tags" button on the bottom of the page (add tags if needed by your setup) and again click "Next: Review" on the bottom of the page. Here we will have to provide a name for our role. Let's call it: *imagebuilder_pipeline_role*. Click the "Create role" button at the bottom of the screen.
 
-Search for the role you just created in ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) and click on it. Now you can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
+Search for the role we just created in ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) and click on it. Now we can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
 
 ```
 {
