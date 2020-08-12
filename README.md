@@ -193,11 +193,15 @@ You should now be displayed your Lambda function page. Below the designer, remov
 You have now succesfully created a Lambda function that is triggered by an SNS message.
 
 ### Step 6: Create a Launch template
-By now pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to wait a bit longer). Navigate to [EC2 Image builder](https://console.aws.amazon.com/imagebuilder/) and select [Images](https://console.aws.amazon.com/imagebuilder/home?#viewImages) from the left panel, select the pipeline you have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *pipeline-example*), click on the version number next to it and click on the latest version image. There you will see the AMI ID (format ami-XXXXXXXXXXXXXXXXX) Run pipeline".
+By now pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to wait a bit longer).
 
 In your AWS console navigate to EC2 and choose ["Launch Templates"](https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates) from the left panel and click the "Create launch template" button.
 
-Here you need to name your template (we will use *server_asg_to_update-template*). Now under "Template tags" create a tag with a key *Name* and value equal to the final name of your Auto Scaling instance (in our case we we will use *image_from_pipeline-example-autoscaling*)
+Here you need to name your template (we will use *server_asg_to_update-template*). Now under "Template tags" create a tag with a key *Name* and value equal to the final name of your Auto Scaling instance (in our case we we will use *image_from_pipeline-example-autoscaling*). Under "Instance type" select the instance type you wish your Auto Scaling group to use. Select your desired key under "Key pair". Under "Network settings" select the Security Group you wish to use. (Optional) If you are using t2 or t3 instances under "Advanced details" you might want to enable the "T2/T3 Unlimited" option.
+
+Click "Create launch template" button at the bottom of the page.
+
+You have now succesfully created a Launch template that will be used to create the Auto Scaling group.
 
 ### Step 7: Create Auto Scaling group from Launch Template
 
@@ -210,4 +214,4 @@ This is the easy part. Everything is ready now. It's time to fully test the solu
 Now, after successfull image creation in EC2 Image builder you should see the AMI ID change after a few moments in your ASG (in our case it's server_asg_to_update).
 
 ### Step 9: Profit!
-It's much more clicking in this solution then the in the base example provided by aws-samples, but at the same time you can tailor this solution more easily to your needs and already created resources.
+It's much more clicking in this solution then the in the base example provided by aws-samples, but at the same time you can tailor this solution more easily to your needs and already created resources. If you need anything additional that has not been set up in this example, just add it along the way to your configuration.
