@@ -2,7 +2,7 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Setup](#setup)
+* [Step 1: Create a IAM Role for EC2 Image Builder](#Step 1: Create a IAM Role for EC2 Image Builder)
 
 
 ## General info
@@ -10,9 +10,6 @@ These are step-by-step instructions on how to automatically update the ami-ID in
 
 This solution is building on "Sample EC2 Auto Scaling groups Instance Refresh solution" by aws-samples (https://github.com/aws-samples/ec2-auto-scaling-instance-refresh-sample).
 
-
-## Setup
-To run this project, install it locally using npm:
 
 ### Step 1: Create a IAM Role for EC2 Image Builder
 First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to IAM in youe ARS Console (https://console.aws.amazon.com/iam/) and under Access management on the left panel select "Roles" (https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
