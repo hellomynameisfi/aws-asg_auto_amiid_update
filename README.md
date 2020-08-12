@@ -226,7 +226,7 @@ You can add notification if you want to receive a message (or trigger something 
 ### Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling group
 This is the easiest part. Everything is ready now. It's time to fully test the solution for the first time. All you have to do is navigate to [EC2 Image builder](https://console.aws.amazon.com/imagebuilder/), select the pipeline you have created in [Step 4](#step-4-create-your-pipeline-and-run-it-for-the-first-time) (in our case it's *pipeline-example*), click the "Actions" button and select "Run pipeline".
 
-Now, after successfull image creation in EC2 Image builder you should see the AMI ID change after a few moments in your ASG (in our case it's server_asg_to_update).
+Now, after successfull image creation in EC2 Image builder you should see the AMI ID change after a few moments in your ASG (in our case it's *server_asg_to_update*).
 
 ### Step 9: Profit!
 It's much more of a hands-on approach then the one provided by aws-samples, but at the same time you can tailor this solution more easily to your needs and already resources you've already. Enjoy!
