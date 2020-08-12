@@ -23,7 +23,7 @@ After being taken to the next screen select:
 
 ... and click the "Next: Permissions" button at the bottom of the page.
 
-Here you will need to add the following Policies: 
+Here you will need to add the following policies: 
 * AmazonSSMManagedInstanceCore 
 * EC2InstanceProfileForImageBuilder 
 
@@ -58,6 +58,12 @@ You have now succesfully created a role for your EC2 Image Builder pipeline. Let
 
 ### Create a IAM Role for Lambda
 We also need to create the role for the Lambda function to be able to update the Auto Scaling Group. 
+
+
+Here you will need to add the following policy: 
+* AWSLambdaBasicExecutionRole
+
+Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page. Here you will have to provide a name for your role. Let's call it: *imagebuilder_lambda_refresh_ami*. Click the "Create role" button at the bottom of the screen.
 
 ```
 {
