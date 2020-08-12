@@ -15,7 +15,7 @@ To run this project, install it locally using npm:
 ### Create a IAM Role for Image Builder
 First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to IAM in youe ARS Console (https://console.aws.amazon.com/iam/) and under Access management on the left panel select "Roles" (https://console.aws.amazon.com/iam/home?/roles#/).
 
-### Create a IAM Role for Image Builder
+### Create a IAM Role for Lambda function
 We also need to create the role for the Lambda function to be able to update the Auto Scaling Group. 
 
 ### Create a Lambda function
