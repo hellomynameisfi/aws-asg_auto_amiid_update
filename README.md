@@ -2,7 +2,8 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Step 1: Create a IAM Role for EC2 Image Builder](#Step 1: Create a IAM Role for EC2 Image Builder)
+* [Step 1: Create a IAM Role for EC2 Image Builder](#step-1-create-a-iam-role-for-ec2-image-builder)
+* [Step 2: Create a IAM Role for Lambda]()
 
 
 ## General info
