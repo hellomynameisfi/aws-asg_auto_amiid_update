@@ -5,7 +5,7 @@
 * [Step 1: Create an IAM role for EC2 Image Builder](#step-1-create-a-iam-role-for-ec2-image-builder)
 * [Step 2: Create an IAM role for Lambda](#step-2-create-a-iam-role-for-lambda)
 * [Step 3: Create a SNS topic](#step-3-create-an-sns-topic)
-* [Step 4: Create your pipeline and run it](#step-4-create-your-pipeline-and-run-it)
+* [Step 4: Create your pipeline and run it for the first time](#step-4-create-your-pipeline-and-run-it-for-the-first-time)
 * [Step 5: Create a Lambda function](#step-5-create-a-lambda-function)
 * [Step 6: Create a Launch template](#step-6-create-a-launch-template)
 * [Step 7: Create Auto Scaling group from Launch Template](#step-7-create-auto-scaling-group-from-launch-template)
@@ -141,7 +141,7 @@ In your AWS console navigate to SNS and choose "Topics" from the left panel (htt
 
 You have now succesfully created an SNS topic for your setup. Don't worry about a subscription, we'll do it later. Let's continue.
 
-### Step 4: Create your pipeline and run it
+### Step 4: Create your pipeline and run it for the first time
 Now we need to set a pipeline and run it for the first time to get a new AMI ID. To do that navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling group.
 
 Click the "Create image pipeline" button. On the next page select a Linux/Windows distribution you want to use and under "Select image" choose "Select managed images". Here you can choose the distribution version you wish to use. After selecting the image tick the "Always build latest version." box (may be ommited if your setup does not allow this).
@@ -193,7 +193,7 @@ You should now be displayed your Lambda function page. Below the designer, remov
 You have now succesfully created a Lambda function that is triggered by an SNS message.
 
 ### Step 6: Create a Launch template
-By now pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to wait a bit longer).  
+By now pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to wait a bit longer). 
 
 ### Step 7: Create Auto Scaling group from Launch Template
 
