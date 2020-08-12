@@ -58,7 +58,7 @@ Now click the "Review policy" button at the bottom of the page. Give the policy 
 You have now succesfully created a role for your EC2 Image Builder pipeline. Let's continue.
 
 ### Step 2: Create a IAM role for Lambda
-We also need to create the role for the Lambda function to be able to update the Auto Scaling Group. The process is quite similiar to what we did in when we created a role for EC2 Image Builder.
+We also need to create the role for the Lambda function to be able to update the Auto Scaling group. The process is quite similiar to what we did in when we created a role for EC2 Image Builder.
 
 Navigate to IAM in youe ARS Console (https://console.aws.amazon.com/iam/) and under Access management on the left panel select "Roles" (https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
 
@@ -139,7 +139,7 @@ In your AWS console navigate to SNS and choose "Topics" from the left panel (htt
 You have now succesfully created an SNS topic for your setup. Don't worry about a subscription, we'll do it later. Let's continue.
 
 ### Step 4: Create your pipeline and run it
-Now we need to set a pipeline and run it for the first time to get a new AMI ID. To do that navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling Group.
+Now we need to set a pipeline and run it for the first time to get a new AMI ID. To do that navigate to EC2 Image builder (https://console.aws.amazon.com/imagebuilder/). Here you can create your pipeline that will be creating your "golden image" for your Auto Scaling group.
 
 Click the "Create image pipeline" button. On the next page select a Linux/Windows distribution you want to use and under "Select image" choose "Select managed images". Here you can choose the distribution version you wish to use. After selecting the image tick the "Always build latest version." box (may be ommited if your setup does not allow this).
 
@@ -174,21 +174,21 @@ Here you have to provide:
 
 ... and click "Next" button on the bottom of the page.
 
-On the next page, under "Output AMI" create a tag with the key *ASGname* with a value equal to the Auto Scaling Group name you will be updating (in our case we will use *server_asg_to_update*. Click "Review" on the bottom of the page and then click "Create pipeline" on the bottom of the next page.
+On the next page, under "Output AMI" create a tag with the key *ASGname* with a value equal to the Auto Scaling group name you will be updating (in our case we will use *server_asg_to_update*. Click "Review" on the bottom of the page and then click "Create pipeline" on the bottom of the next page.
 
 Now select the pipeline you have just created, click the "Actions" button and select "Run pipeline".
 
-You have now succesfully created a pipeline, which is now building the first AMI to be used in your Auto Scaling Group.
+You have now succesfully created a pipeline, which is now building the first AMI to be used in your Auto Scaling group.
 
 ### Step 5: Create a Launch template
 asdasdsd
 
-### Step 6: Create Auto Scaling Group from Launch Template
+### Step 6: Create Auto Scaling group from Launch Template
 
 ### Step 7: Create a Lambda function
 Now we need to create a Lambda function that will do all the job for us. To do that navigate to Lambda in your AWS Console (https://console.aws.amazon.com/lambda/) and click the "Create function" button. 
 
-### Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling Group
+### Step 8: Run your pipeline to invoke a Lambda function and update AMI ID in Auto Scaling group
 
 
 ### Step 9: Profit!
