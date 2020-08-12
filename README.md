@@ -15,11 +15,11 @@
 ## General info
 These are step-by-step instructions on how to automatically update the AMI ID inside an Auto Scalig Group with an EC2 Image Builder generated image AMI ID. The goal is to have one function responsible for updating all desired ASG's instead of a function for each ASG separately (and because I was unsuccesfull with the original solution provided by aws-samples). I use a amiTag set in the EC2 Image Builder pipeline instead of a environment variable from within Lambda function.
 
-This solution is building on "Sample EC2 Auto Scaling groups Instance Refresh solution" by aws-samples (https://github.com/aws-samples/ec2-auto-scaling-instance-refresh-sample).
+This solution is building on "Sample EC2 Auto Scaling groups Instance Refresh solution" by [aws-samples](https://github.com/aws-samples/ec2-auto-scaling-instance-refresh-sample).
 
 
 ### Step 1: Create a IAM role for EC2 Image Builder
-First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to IAM in youe ARS Console (https://console.aws.amazon.com/iam/) and under Access management on the left panel select "Roles" (https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
+First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to [IAM](https://console.aws.amazon.com/iam/) in youe AWS Console and under Access management on the left panel select ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
 
 After being taken to the next screen select:
 * AWS service
@@ -33,7 +33,7 @@ Here you will need to add the following policies:
 
 Now click "Next: Tags" button on the bottom of the page (add Tags if needed by your setup) and again click "Next: Review" on the bottom of the page. Here you will have to provide a name for your role. Let's call it: *imagebuilder_pipeline_role*. Click the "Create role" button at the bottom of the screen.
 
-Search for the role you just created (https://console.aws.amazon.com/iam/home?/roles#/) and click on it. Now you can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
+Search for the role you just created in ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) and click on it. Now you can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
 
 ```
 {
@@ -194,6 +194,8 @@ You have now succesfully created a Lambda function that is triggered by an SNS m
 
 ### Step 6: Create a Launch template
 By now pipeline image should be fully created and marked as "Available" in EC2 Image Builder (or you might need to wait a bit longer). 
+
+Now navigate to (https://console.aws.amazon.com/ec2/v2/home?#LaunchTemplates)
 
 ### Step 7: Create Auto Scaling group from Launch Template
 
