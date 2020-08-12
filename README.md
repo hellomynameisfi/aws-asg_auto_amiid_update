@@ -186,7 +186,7 @@ Now we need to create a Lambda function that will do all the job for us. To do t
 
 Select "Author from scratch", give the function a name (in our case we'll use *update_asg_amiid_function*, and select Python 3.8 as Runtime. Under "Choose or create an execution role" select the role you have created in [Step 2](#step-2-create-a-iam-role-for-lambda) (in our case it's *lambda_function_refresh_ami*) and click "Create function" button on the bottom of the page.
 
-You should now be displayed your Lambda function page. Below the designer, remove everything in the "Function code" field and copy contents of [lambda.py](https://raw.githubusercontent.com/hellomynameisfi/aws-asg_auto_amiid_update/master/lambda.py?token=AQKBCKD2VERRINL55L7FQMK7GPPDO). Now above, in the "Designer" click "Add trigger". In the "Trigger configuration" select SNS as the trigger and select the SNS topic we've created in [Step 3](#step-3-create-an-sns-topic) (in our case it's *image_builder-to-lambda*) and click "Add". Now click "Save" in the top right corner of your function page.
+You should now be displayed your Lambda function page. Below the designer, remove everything in the "Function code" field and copy contents of [lambda.py](https://raw.githubusercontent.com/hellomynameisfi/aws-asg_auto_amiid_update/master/lambda.py). Now above, in the "Designer" click "Add trigger". In the "Trigger configuration" select SNS as the trigger and select the SNS topic we've created in [Step 3](#step-3-create-an-sns-topic) (in our case it's *image_builder-to-lambda*) and click "Add". Now click "Save" in the top right corner of your function page.
 
 You have now succesfully created a Lambda function that is triggered by an SNS message.
 
@@ -203,5 +203,3 @@ By now pipeline image should be fully created and marked as "Available" in EC2 I
 
 ### Step 9: Profit!
 It's much more clicking then the base example provided by aws-samples, but at the same time you can more easily tailor this solution to your needs and already created resources.
-
-###### IF xou BTC: 1bcalksdjasdjfsdfum0s9mf8ßs9df8s0ßf98sß0.9
