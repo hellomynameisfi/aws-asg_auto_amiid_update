@@ -6,7 +6,7 @@
 * [Step 2: Create an IAM role for Lambda](#step-2-create-a-iam-role-for-lambda)
 * [Step 3: Create a SNS topic](#step-3-create-an-sns-topic)
 * [Step 4: Create your pipeline and run it](#step-4-create-your-pipeline-and-run-it)
-* [Step 5: Create a Launch template]
+* [Step 5: Create a Launch template](#step-5-create-a-launch-template)
 
 
 ## General info
