@@ -51,7 +51,7 @@ opensource-codeofconduct@amazon.com with any additional questions or comments.
 
 
 ## Security issue notifications
-If you discover a potential security issue in this project we ask that you notify me ASAP. Please do **not** create a public github issue.
+If you discover a potential security issue in this project we ask that you notify us ASAP. Please do **not** create a public github issue.
 
 
 ## Licensing
