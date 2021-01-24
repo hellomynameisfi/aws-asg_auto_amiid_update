@@ -20,7 +20,7 @@ This solution is building on ["Sample EC2 Auto Scaling groups Instance Refresh s
 
 
 ### Step 1: Create a IAM role for EC2 Image Builder
-First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to [IAM](https://console.aws.amazon.com/iam/) in your AWS Console and under Access management on the left panel select ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
+First of all we need to create a IAM role for our Image Builder pipeline. For that navigate to [IAM](https://console.aws.amazon.com/iam/) in your AWS Console and under Access management on the left panel select ["Roles"](https://console.aws.amazon.com/iam/) click "Create role" button.
 
 After being taken to the next screen select: "AWS service" and "EC2", and click the "Next: Permissions" button at the bottom of the page.
 
@@ -32,7 +32,7 @@ Now click "Next: Tags" and again click "Next: Review" on the bottom of the page.
 
 Here we will have to provide a name for our role (we'll use *imagebuilder_pipeline_role*). Click the "Create role" button at the bottom of the page.
 
-Search for the role we just created in ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) and click on it. Now we can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
+Search for the role we just created in ["Roles"](https://console.aws.amazon.com/iam/) and click on it. Now we can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
 
 ```
 {
@@ -64,7 +64,7 @@ Congratulations! You have now succesfully created a role for your EC2 Image Buil
 ### Step 2: Create a IAM role for Lambda
 We also need to create the role for the Lambda function to be able to update the Auto Scaling group. The process is quite similiar to what we did in when we created a role for EC2 Image Builder.
 
-Navigate to [IAM](https://console.aws.amazon.com/iam/) in youe AWS Console and under Access management on the left panel select ["Roles"](https://console.aws.amazon.com/iam/home?/roles#/) click "Create role" button.
+Navigate to [IAM](https://console.aws.amazon.com/iam/) in youe AWS Console and under Access management on the left panel select ["Roles"](https://console.aws.amazon.com/iam/) click "Create role" button.
 
 After being taken to the next screen select "AWS service" and "Lambda", and click the "Next: Permissions" button at the bottom of the page.
 
@@ -75,7 +75,7 @@ Now click "Next: Tags" button and again click "Next: Review" on the bottom of th
 
 Here you will have to provide a name for your role (we'll use *lambda_function_refresh_ami*). Click the "Create role" button at the bottom of the screen.
 
-Search for the [role](https://console.aws.amazon.com/iam/home?/roles#/) you just created and click on it. Now you can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
+Search for the [role](https://console.aws.amazon.com/iam/) you just created and click on it. Now you can add additional permissions that are still needed. To do that click on "Add inline policy" on the right of the "Permissions" tab. On the next page select JSON and paste the following:
 ```
 {
     "Version": "2012-10-17",
@@ -243,4 +243,3 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
-
